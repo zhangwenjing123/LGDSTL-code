@@ -49,7 +49,6 @@ Ls = Lws - lambda*Lbs;
    DD3 = diag(sum(W3));
    Lw2 = DD3 - W3;
    lg = X*Lw2*X';
-%fprintf('PRDR:  alpha=%f  beta=%f  gamma=%f,lambda=%f,lambda1=%f\n',alpha,beta,gamma,lambda,lambda1);
 for iter=1:Max_Iter
      [Lwt,Lbt] = myConGraph2(Yt0,options,Xt');
      Sbt = Xt*Lbt*Xt';
@@ -93,7 +92,6 @@ for iter=1:Max_Iter
      graph = gamma*trace(W'*lg*W);
      graph_local =lambda1*trace(W'*Lc*W);
      fobject=regression+recons+orths+graph+graph_local;
-   % fprintf('Objective: %2.4f,regression: %2.4f,recons: %2.4f, orths: %2.4f,graph: %2.4f ,graph_local: %2.4f\n',fobject,regression,recons,orths,graph,graph_local); 
     end   
  end
 function [y,acc] = myClassifier(Xs,Xt,Ys,Yt,p)
