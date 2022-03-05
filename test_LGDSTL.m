@@ -42,7 +42,6 @@ for a =1:1
            param.beta = beta{b};
             param.gamma = gamma{c};
             param.lambda1 =lambda1{d};
-  tic
   for repeat=1:REPEAT 
      [W] = LGDSTL(Xs,Xt,Xs_label,Xt_label, param, opts);
     fea_train = W'*Xs;
@@ -55,14 +54,10 @@ for a =1:1
      acc = acc(1);    
      fprintf(' %2.2f \n',acc);
      Acc=[Acc,acc];
-  toc
   end
         end
     end
     end
   
 end
-   result = [result;Acc];
-    result1 =max(result); 
 end
-   result1
