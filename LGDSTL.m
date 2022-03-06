@@ -33,7 +33,7 @@ XX = Xs*Xs';
 options1.ReduceDim =100;
 [P2,~] = PCA1(Xs', options1);
 [Yt0,PCAAcc] = myClassifier(Xs,Xt,Ys,Yt,P2);
-fprintf('PCA accuracy : %f\n',PCAAcc);
+%fprintf('PCA accuracy : %f\n',PCAAcc);
 accVec = zeros(Max_Iter,1);
 [Lws,Lbs] = myConGraph2(Ys,options,Xs');
 Sbs = Xs*Lbs*Xs';
@@ -42,7 +42,7 @@ Ls = Lws - lambda*Lbs;
 % Constuct global_graph
    options2 = [];
    options2.NeighborMode = 'KNN';
-   options2.k =5;
+   options2.k =15;
    options2.WeightMode = 'Binary';
    W3 = constructW(X',options2);
    W3=full(W3);
